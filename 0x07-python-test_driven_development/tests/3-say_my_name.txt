@@ -1,0 +1,62 @@
+------------------------------------------
+
+      Say My Name Test file
+
+++++++++++++++++++++++++++++++++++++++++++
+This is a test file for say_my_name module
+++++++++++++++++++++++++++++++++++++++++++
+
+ say_my_name - print in the format My name is <first_name> <last_name>
+ first_name (str): first argument takes string
+ last_name (str): second argument takes string
+          last_name is initialise to empty (last_name="")
+NB: Other data types apart from string is not supported
+------------------------------------------
+Import the function required for testing from the module
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Start testing with some different inputs
+
+#Test for first name and last name are correct
+    >>> say_my_name("John", "King")
+    My name is John King
+
+#Test for first name is correct and last name is empty
+    >>> say_my_name("David")
+    My name is David
+
+#Test for first name is bool and last name is correct
+    >>> try:
+    ...     say_my_name(True, 'Joy')
+    ... except Exception as e:
+    ...     print(e)
+    first_name must be a string
+
+#Test for first name is correct and last name is None
+    >>> try:
+    ...     say_my_name("Dawin", None)
+    ... except Exception as e:
+    ...     print(e)
+    last_name must be a string
+
+#Test for first name is int and last name is empty
+    >>> try:
+    ...     say_my_name(8)
+    ... except Exception as e:
+    ...     print(e)
+    first_name must be a string
+
+#Test for first name is list and last name is tuple
+    >>> try:
+    ...    say_my_name(["Angela", "Brown"], ("Joy", "James"))
+    ... except Exception as e:
+    ...    print(e)
+    first_name must be a string
+
+#Test for first name is empty and second name is correct
+    >>> try:
+    ...     say_my_name("", "Brown")
+    ... except Exception as e:
+    ...     print(e)
+    My name is  Brown
