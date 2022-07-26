@@ -1,0 +1,63 @@
+------------------------------------------
+
+      Add-integer Test file
+
+++++++++++++++++++++++++++++++++++++++++++
+This is a test file for add_integer module
+++++++++++++++++++++++++++++++++++++++++++
+
+ add_integer - compute the sum of two integer and return the result
+ a (int): first argument should contain integer or float value
+ b (int): second argument should contain integer or float value
+          b is initialise to 98 (b = 98)
+NB: Other data types apart from int and float are not supported
+------------------------------------------
+Import the function required for testing from the module
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+Start testing with some correct input
+
+#Test for a is integer and b is integer
+    >>> print(add_integer(2, 4))
+    6
+
+#Test for a is float and b is negative int
+    >>> print(add_integer(5.4, -3))
+    2
+
+#Test for a is negative float and b is float
+    >>> print(add_integer(-3.7, 5.2))
+    2
+
+#Test for a is bool and b is int
+    >>> try:
+    ...     print(add_integer(True, 5))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
+
+#Test for a is float and b is empty
+    >>> print(add_integer(98.6, ))
+    196
+
+#Test for both are None
+    >>> try:
+    ...     print(add_integer(None))
+    ... except Exception as e:
+    ...     print(e)
+    a must be an integer
+
+#Test for a is int and b is string
+    >>> try:
+    ...     print(add_integer(34, "Two"))
+    ... except Exception as e:
+    ...     print(e)
+    b must be an integer
+
+#Test for a is float and b is array
+    >>> try:
+    ...     print(add_integer(55.40, ["3", 6, 8, 9]))
+    ... except Exception as e:
+    ...     print(e)
+    b must be an integer
