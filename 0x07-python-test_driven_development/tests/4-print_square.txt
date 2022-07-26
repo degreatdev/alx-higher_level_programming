@@ -1,0 +1,60 @@
+------------------------------------------
+
+      Print Square Test File
+
+++++++++++++++++++++++++++++++++++++++++++                 This is a test file for the print square module
+++++++++++++++++++++++++++++++++++++++++++                 
+ print_square - print square with the character #
+ size (int): first argument takes integer
+
+NB: Other data types apart from integer is not supported
+------------------------------------------
+Import the function required for testing from the module   
+    >>> print_square = __import__('4-print_square').print_square                                                      
+
+Start testing with some different inputs
+
+#Test for size is filled with correct input
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
+
+#Test for size is filled with large value
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+#Test for size is set to zero
+    >>> print_square(0)
+    
+
+#Test for size is negative value
+    >>> try:
+    ...     print_square(-2)
+    ... except Exception as e:
+    ...     print(e)
+    size must be >= 0
+
+#Test for size is a string
+    >>> try:
+    ...     print_square("one")
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
+
+#Test for size is float and less than zero
+    >>> try:
+    ...     print_square(-2.85)
+    ... except Exception as e:
+    ...     print(e)
+    size must be an integer
