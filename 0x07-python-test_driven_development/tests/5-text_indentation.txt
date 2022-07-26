@@ -1,0 +1,129 @@
+------------------------------------------
+
+      Text indentation Test File
+
+++++++++++++++++++++++++++++++++++++++++++                 
+This is a test file for the text indentation module
+++++++++++++++++++++++++++++++++++++++++++                 
+ text_indentation - print a text with 2 new lines after each of these
+                    characters: '.' , ':' and '?'.
+ text (str): takes a string of texts
+
+NB: Other data types apart from string is not supported
+------------------------------------------
+Import the function required for testing from the module   
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Start testing with some different inputs
+
+#Test for text is a string of multiline texts
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    ... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+    ... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+    ... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+    ... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+    ... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+    ... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+    ... beatiorem! Iam ruinas videres""")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    <BLANKLINE>
+    Si id dicis, vicimus.
+    <BLANKLINE>
+    Inde sermone vario sex illa a Dipylo stadia confecimus.
+    <BLANKLINE>
+    Sin aliud quid voles, postea.
+    <BLANKLINE>
+    Quae animi affectio suum cuique tribuens atque hanc, quam dico.
+    <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
+
+#Test for text is a string of 5 lines
+    >>> text_indentation("""Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    ... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+    ... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+    ... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+    ... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+    ... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere.""") 
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    igitur ne illud quidem.
+    <BLANKLINE>
+    Fortasse id optimum, sed ubi illud:
+    <BLANKLINE>
+    Plus semper voluptatis?
+    <BLANKLINE>
+    Teneo, inquit, finem illi videri nihil dolere.
+    <BLANKLINE>
+
+#Test for text is a bool
+    >>> try:
+    ...     text_indentation(True)
+    ... except Exception as e:
+    ...     print(e)
+    text must be a string
+
+
+#Test for text is an integer
+    >>> try:
+    ...     text_indentation(34)
+    ... except Exception as e:
+    ...     print(e)
+    text must be a string
+
+#Test for text is an List
+    >>> try:
+    ...     text_indentation(["this is a test file. Testing for ? and . and :"])
+    ... except Exception as e:
+    ...     print(e)
+    text must be a string
+
+#Test for text is a single line string
+    >>> text_indentation("Text indentation? Yes, indent each text with new lines if : or ? or . is present. ")
+    Text indentation?
+    <BLANKLINE>
+    Yes, indent each text with new lines if :
+    <BLANKLINE>
+    or ?
+    <BLANKLINE>
+    or .
+    <BLANKLINE>
+    is present.
+    <BLANKLINE>
+
+#Test for text is empty string
+    >>> text_indentation("")
