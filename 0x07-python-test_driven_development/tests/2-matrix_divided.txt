@@ -1,0 +1,66 @@
+------------------------------------------
+
+      Divide A Matrix Test file
+
+++++++++++++++++++++++++++++++++++++++++++
+This is a test file for matrix_divided module
+++++++++++++++++++++++++++++++++++++++++++
+
+ matrix_divided - divides all elements of a matrix and return new list
+ matrix (list): matrix
+ div (int): divider
+NB: Other data types apart from int, float or list will result in error
+------------------------------------------
+Import the function required for testing from the module
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Start testing with some different inputs
+
+#Test for matrix is a 2x3 list and div is int
+    >>> print(matrix_divided([
+    ... [1, 2, 3],
+    ... [4, 5, 6]], 3))
+    [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+#Test for matrix is a 3x3 list and div is float
+    >>> print(matrix_divided([
+    ... [2, 4, 6],
+    ... [8, 10, 12],
+    ... [14, 16, 18]], 2.0))
+    [[1.0, 2.0, 3.0], [4.0, 5.0, 6.0], [7.0, 8.0, 9.0]]
+
+#Test for matrix is a list and div is int
+    >>> try:
+    ...     print(matrix_divided([22, 54, 38], 4))
+    ... except Exception as e:
+    ...     print(e)
+    row of the matrix must have the same size
+
+#Test for matrix is a 2x2 list and div is a str
+    >>> try:
+    ...     print(matrix_divided([122, 248, 844], "20.2"))
+    ... except Exception as e:
+    ...     print(e)
+    div must be a number
+
+#Test for matrix is a 2x2 list and div is negative int
+    >>> try:
+    ...     print(matrix_divided([[22, 54, 38], [3, 4, 5]], -4))
+    ... except Exception as e:
+    ...     print(e)
+    division by zero
+
+#Test for matrix value is str and div is int
+    >>> try:
+    ...     print(matrix_divided([[22, 54, 38], ["one", "two" , "three"]], 4))
+    ... except Exception as e:
+    ...     print(e)
+    matrix must be a matrix (list of lists) of integers/floats
+
+#Test for matrix is empty and div is int
+    >>> try:
+    ...     print(matrix_divided([], 2))
+    ... except Exception as e:
+    ...     print(e)
+    None
